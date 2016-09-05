@@ -211,6 +211,42 @@ public class ReceiptTest {
 
     /**
      * Tests that the getTotal method correctly calculates the cost of the items in the receipt
+     * (for multiple items including a discount)
+     * @throws Exception
+     */
+    @Test
+    public void testGetTotalMultipleItemsDiscount() throws Exception {
+
+        //Given
+        String[] testReceipt = {"Apple", "Orange", "Apple"};
+
+        //When
+        Receipt receipt = new Receipt(testReceipt);
+
+        //Then
+        assertEquals(0.85, receipt.getTotal(), 0.0001);
+    }
+
+    /**
+     * Tests that the getTotal method correctly calculates the cost of the items in the receipt
+     * (for a large number of items)
+     * @throws Exception
+     */
+    @Test
+    public void testGetTotalMultipleItemsLarge() throws Exception {
+
+        //Given
+        String[] testReceipt = {"Apple", "Orange", "Orange", "Orange", "Apple", "Apple", "Orange", "Orange", "Apple", "Apple", "Orange", "Orange"};
+
+        //When
+        Receipt receipt = new Receipt(testReceipt);
+
+        //Then
+        assertEquals(3.05, receipt.getTotal(), 0.0001);
+    }
+
+    /**
+     * Tests that the getTotal method correctly calculates the cost of the items in the receipt
      * (for no item)
      * @throws Exception
      */

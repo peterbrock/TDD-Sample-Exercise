@@ -42,4 +42,10 @@ public abstract class TrolleyItem {
      */
     public abstract double getCostPerUnit();
 
+    /**
+     * Get the amount of discount to be applied to the total cost of this type of item (e.g. reduce price by 50p due to buy 1 get 1 free discount)
+     * @return the discount to be applied in pounds/pence
+     */
+    public abstract double calculateDiscountCost();
+
 }

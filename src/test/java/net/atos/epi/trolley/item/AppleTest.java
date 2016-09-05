@@ -27,6 +27,70 @@ public class AppleTest {
     }
 
     /**
+     * Test the calculateDiscountCost method correct returns the right discount cost (2 for 1)
+     * (for a quantity of that isn't discounted)
+     * @throws Exception
+     */
+    @Test
+    public void testCalculateDiscountCostNoDiscount() throws Exception {
+
+        //When
+        Apple apple = new Apple();
+        apple.quantity = 1;
+
+        //Then
+        assertEquals(0.0, apple.calculateDiscountCost(), 0.0001);
+    }
+
+    /**
+     * Test the calculateDiscountCost method correct returns the right discount cost (2 for 1)
+     * (for a quantity of 2 - discounted)
+     * @throws Exception
+     */
+    @Test
+    public void testCalculateDiscountCostSingleDiscount() throws Exception {
+
+        //When
+        Apple apple = new Apple();
+        apple.quantity = 2;
+
+        //Then
+        assertEquals(0.60, apple.calculateDiscountCost(), 0.0001);
+    }
+
+    /**
+     * Test the calculateDiscountCost method correct returns the right discount cost (2 for 1)
+     * (for a quantity of 3 - discounted)
+     * @throws Exception
+     */
+    @Test
+    public void testCalculateDiscountCostSingleDiscountBoundary() throws Exception {
+
+        //When
+        Apple apple = new Apple();
+        apple.quantity = 3;
+
+        //Then
+        assertEquals(0.60, apple.calculateDiscountCost(), 0.0001);
+    }
+
+    /**
+     * Test the calculateDiscountCost method correct returns the right discount cost (2 for 1)
+     * (for a large discount - discounted)
+     * @throws Exception
+     */
+    @Test
+    public void testCalculateDiscountCostDiscountLarge() throws Exception {
+
+        //When
+        Apple apple = new Apple();
+        apple.quantity = 11;
+
+        //Then
+        assertEquals(3.0, apple.calculateDiscountCost(), 0.0001);
+    }
+
+    /**
      * Test the calculateTotalCost method correctly returns the right item cost
      * (for a single quantity)
      * @throws Exception
@@ -44,7 +108,7 @@ public class AppleTest {
 
     /**
      * Test the calculateTotalCost method correctly returns the right item cost
-     * (for a large quantity)
+     * (for a large quantity including discount)
      * @throws Exception
      */
     @Test
@@ -55,7 +119,7 @@ public class AppleTest {
         apple.quantity = 11;
 
         //Then
-        assertEquals(6.60, apple.calculateTotalCost(), 0.0001);
+        assertEquals(3.60, apple.calculateTotalCost(), 0.0001);
     }
 
     /**
