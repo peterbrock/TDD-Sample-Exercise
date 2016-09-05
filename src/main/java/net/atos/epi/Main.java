@@ -1,5 +1,7 @@
 package net.atos.epi;
 
+import net.atos.epi.receipt.Receipt;
+
 /**
  * Created by peterbrock on 05/09/16.
  */
@@ -11,7 +13,9 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        System.out.println("Main executed");
+        Receipt receipt = new Receipt(args);
+
+        System.out.println("Total value of receipt: " + receipt.getTotal());
     }
 
 }
