@@ -1,7 +1,5 @@
 package net.atos.epi.trolley;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 /**
  * Abstract class representing a type of item that appears on the receipt.
  * Created by peterbrock on 05/09/16.
@@ -27,7 +25,7 @@ public abstract class TrolleyItem {
      */
     public double calculateTotalCost() {
 
-        return (quantity * getCostPerUnit());
+        return (quantity * getCostPerUnit()) - calculateDiscountCost();
     }
 
     /**
