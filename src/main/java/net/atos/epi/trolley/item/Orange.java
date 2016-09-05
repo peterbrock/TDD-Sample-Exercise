@@ -1,7 +1,6 @@
 package net.atos.epi.trolley.item;
 
 import net.atos.epi.trolley.TrolleyItem;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * The 'Orange' item
@@ -18,14 +17,12 @@ public class Orange extends TrolleyItem {
 
     @Override
     public String getDescription() {
-
-        throw new NotImplementedException();
+        return "Orange";
     }
 
     @Override
     public double getCostPerUnit() {
-
-        throw new NotImplementedException();
+        return 0.25;
     }
 
 }

@@ -1,6 +1,7 @@
 package net.atos.epi.trolley;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import net.atos.epi.trolley.item.Apple;
+import net.atos.epi.trolley.item.Orange;
 
 /**
  * Factory class to create a new TrolleyItem
@@ -15,6 +16,14 @@ public class TrolleyItemFactory {
      */
     public static TrolleyItem getTrolleyItem(String description) {
 
-        throw new NotImplementedException();
+        TrolleyItem retVal = null;
+
+        if ("Apple".equalsIgnoreCase(description)) {
+            retVal = new Apple();
+        } else if ("Orange".equalsIgnoreCase(description)) {
+            retVal = new Orange();
+        }
+
+        return retVal;
     }
 }

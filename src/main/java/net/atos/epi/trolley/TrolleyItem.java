@@ -27,7 +27,7 @@ public abstract class TrolleyItem {
      */
     public double calculateTotalCost() {
 
-        throw new NotImplementedException();
+        return (quantity * getCostPerUnit());
     }
 
     /**
